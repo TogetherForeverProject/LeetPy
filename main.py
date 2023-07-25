@@ -14,38 +14,40 @@ def get_input_comment(problem_file):
             return match.group(1).strip()
     return None
 
-def get_title_comment(problem_file):
-    with open(problem_file, "r") as f:
-        code = f.read()
-        match = re.search(r'# Title:(.*?)\n', code)
-        if match:
-            comment = match.group(1).strip()
-            return comment
+
+def get_title_from_file(problem_folder):
+    info_file = os.path.join(problem_folder, "info.txt")
+    if os.path.isfile(info_file):
+        with open(info_file, "r") as f:
+            for line in f:
+                if line.startswith("Title:"):
+                    return line.strip().replace("Title:", "").strip()
     return None
 
-def get_main_comment(problem_file):
-    with open(problem_file, "r") as f:
-        code = f.read()
-        match = re.search(r'#(.*?)(?=class Solution:)', code, re.DOTALL)
-        if match:
-            comment = match.group(1).strip()
-            # Exclude any comments after the class definition
-            comment = re.sub(r'Input:.*$', '', comment, flags=re.MULTILINE)
-            comment = re.sub(r'Title:.*$', '', comment, flags=re.MULTILINE)
-            comment = re.sub(r'from.*$', '', comment, flags=re.MULTILINE)
-            comment = '\n'.join(line.lstrip('#').strip() for line in comment.splitlines())
-            return comment.strip()
+def get_question_from_file(problem_folder):
+    info_file = os.path.join(problem_folder, "info.txt")
+    if os.path.isfile(info_file):
+        with open(info_file, "r") as f:
+            found_question = False
+            question_lines = []
+            for line in f:
+                if found_question:
+                    question_lines.append(line.strip())
+                elif line.strip().startswith("Question:"):
+                    found_question = True
+                    question_lines.append(line.strip().replace("Question:", "").strip())
+            return "\n".join(question_lines)
     return None
-
 
 def run_problem(problem_number):
+    problem_folder = f"problems/problem{problem_number}"
     problem_file = f"problems/problem{problem_number}/solution.py"
 
     if not os.path.isfile(problem_file):
         print(f"[bold red]Error:[/bold red] Problem file 'problem{problem_number}.py' not found.")
         return None
 
-    title = get_title_comment(problem_file)
+    title = get_title_from_file(problem_folder)
     if title:
         print(f"[bold cyan]Problem {problem_number}[/bold cyan] │ {title}")
     else:
@@ -53,9 +55,9 @@ def run_problem(problem_number):
 
     print("────────────────────────────────────────")
 
-    main_comment = get_main_comment(problem_file)
-    if main_comment:
-        print(f"[bold yellow]Question:[/bold yellow] {main_comment}")
+    question = get_question_from_file(problem_folder)
+    if question:
+        print(f"[bold yellow]Question:[/bold yellow] {question}")
 
     input_comment = get_input_comment(problem_file)
     if input_comment:

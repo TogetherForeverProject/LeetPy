@@ -1,7 +1,3 @@
-# Title: Climbing Stairs
-# You are climbing a staircase. It takes n steps to reach the top.
-# Eachtime you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
-
 class Solution:
     def climbStairs(self, n):
         # Base cases: If n is 0 or 1, there's only one way to climb.
