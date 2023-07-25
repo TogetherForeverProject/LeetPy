@@ -1,7 +1,9 @@
 # LeetPy
 
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+
 **[Leet Code Dynamic Programming](https://leetcode.com/studyplan/dynamic-programming/)**
-| # | Title | Solution | Difficulty |
+| No. | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
 |70|[Climbing Stairs](https://leetcode.com/problems/climbing-stairs/?envType=study-plan-v2[[70]]envId=dynamic-programming)|[Problem 70](./problems/problem70/solution.py)|<span style="color:rgb(0 184 163);">Easy</span>|
 |509|[Fibonacci Number](https://leetcode.com/problems/fibonacci-number/?envType=study-plan-v2[[509]]envId=dynamic-programming)|[Problem 509](./problems/problem509/solution.py)|<span style="color:rgb(0 184 163);">Easy</span>|
