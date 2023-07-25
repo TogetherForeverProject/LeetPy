@@ -39,7 +39,7 @@ def get_main_comment(problem_file):
 
 
 def run_problem(problem_number):
-    problem_file = f"problems/problem{problem_number}.py"
+    problem_file = f"problems/problem{problem_number}/solution.py"
 
     if not os.path.isfile(problem_file):
         print(f"[bold red]Error:[/bold red] Problem file 'problem{problem_number}.py' not found.")
@@ -65,7 +65,7 @@ def run_problem(problem_number):
     old_stdout = sys.stdout
     sys.stdout = io.StringIO()
 
-    module = importlib.import_module(f"problems.problem{problem_number}")
+    module = importlib.import_module(f"problems.problem{problem_number}.solution")
     module.main()
 
     # Get the captured output
