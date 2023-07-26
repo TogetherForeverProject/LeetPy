@@ -10,7 +10,7 @@ Retorno *el costo mínimo para llegar a la parte superior del piso*.
 
 **Ejemplo 1:**
 <pre><strong>Entrada:</strong> costo = [10, 15, 20]
-<fuerte>Salida:</fuerte> 15
+<strong>Salida:</strong> 15
 <strong>Explicación:</strong> Comenzará en el índice 1.
 - Paga 15 y sube dos escalones para llegar a la cima.
 El costo total es de 15.

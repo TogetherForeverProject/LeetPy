@@ -1,5 +1,6 @@
 Problem: 198
 Title: House Robber
+Category: Fibonacci Style
 Link: https://leetcode.com/problems/house-robber/?envType=study-plan-v2&envId=dynamic-programming
 Difficulty: Medium
 Question: You are a professional robber planning to rob houses along a street.

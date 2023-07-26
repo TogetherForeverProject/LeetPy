@@ -1,5 +1,6 @@
 Problem: 509
 Title: Fibonacci Number
+Category: Fibonacci Style
 Link: https://leetcode.com/problems/fibonacci-number/?envType=study-plan-v2&envId=dynamic-programming
 Difficulty: Easy
 Question: The Fibonacci numbers, commonly denoted F(n) form a sequence,

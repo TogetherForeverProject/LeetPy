@@ -4,7 +4,7 @@
 
 Estás subiendo una escalera. Se necesitan `n` pasos para llegar a la cima
 
-Cada vez puedes subir '1' o '2' escalones. ¿De cuántas maneras distintas puedes subir a la cima?
+Cada vez puedes subir `1` o `2` escalones. ¿De cuántas maneras distintas puedes subir a la cima?
 
 **Ejemplo 1:**
 <pre><strong>Entrada:</strong> n = 2

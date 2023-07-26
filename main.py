@@ -24,6 +24,17 @@ def get_title_from_file(problem_folder):
                     return line.strip().replace("Title:", "").strip()
     return None
 
+
+def get_category_from_file(problem_folder):
+    info_file = os.path.join(problem_folder, "info.txt")
+    if os.path.isfile(info_file):
+        with open(info_file, "r") as f:
+            for line in f:
+                if line.startswith("Category:"):
+                    return line.strip().replace("Category:", "").strip()
+    return None
+
+
 def get_question_from_file(problem_folder):
     info_file = os.path.join(problem_folder, "info.txt")
     if os.path.isfile(info_file):
@@ -49,19 +60,25 @@ def run_problem(problem_number):
 
     title = get_title_from_file(problem_folder)
     if title:
-        print(f"[bold cyan]Problem {problem_number}[/bold cyan] │ {title}")
+        print(f"[b #89b4fa]Problem {problem_number}[/b #89b4fa] │ {title}")
     else:
-        print(f"[bold cyan]Problem {problem_number}[/bold cyan]")
+        print(f"[b #89b4fa]Problem {problem_number}[/b #89b4fa]")
 
-    print("────────────────────────────────────────")
+    print("[blink]────────────────────────────────────────[/blink]")
+
+    category = get_category_from_file(problem_folder)
+    if category:
+        print(f"[b #cba6f7]Category:[/b #cba6f7] [#cdd6f4]{category}[/#cdd6f4]")
+    else:
+        print(f"[b #cba6f7]Category:[/b #cba6f7] [#cdd6f4]None[/#cdd6f4]")
 
     question = get_question_from_file(problem_folder)
     if question:
-        print(f"[bold yellow]Question:[/bold yellow] {question}")
+        print(f"[b #f38ba8]Question:[/b #f38ba8] [#cdd6f4]{question}[/#cdd6f4]")
 
     input_comment = get_input_comment(problem_file)
     if input_comment:
-        print(f"[bold cyan]Input:[/bold cyan] {input_comment}")
+        print(f"[b #b4befe]Input:[/b #b4befe] [#cdd6f4]{input_comment}[/#cdd6f4]")
 
     # Capture the standard output
     old_stdout = sys.stdout
@@ -76,13 +93,13 @@ def run_problem(problem_number):
     # Restore the standard output
     sys.stdout = old_stdout
 
-    print(f"[bold magenta]Output:[/bold magenta] {output}", end=" ")
+    print(f"[b #a6e3a1]Output:[/b #a6e3a1] {output}", end=" ")
 
     return output
 
 
 def main():
-    parser = argparse.ArgumentParser(description="CLI tool to run specific problem files")
+    parser = argparse.ArgumentParser(description="Run LeetCode Problems")
     parser.add_argument("-P", "--problem", type=int, required=True, help="Problem number to run")
     args = parser.parse_args()
 

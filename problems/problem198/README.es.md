@@ -15,7 +15,7 @@ Monto total que puedes robar = 1 + 3 = 4.
 
 **Ejemplo 2:**
 <pre><strong>Entrada:</strong> números = [2,7,9,3,1]
-<fuerte>Salida:</fuerte> 12
+<strong>Salida:</strong> 12
 <strong>Explicación:</strong> Robar casa 1 (dinero = 2), robar casa 3 (dinero = 9) y robar casa 5 (dinero = 1).
 Monto total que puedes robar = 2 + 9 + 1 = 12.
 </pre>

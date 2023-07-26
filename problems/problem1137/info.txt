@@ -1,5 +1,6 @@
 Problem: 1137
 Title: N-th Tribonacci Numbers
+Category: Fibonacci Style
 Link: https://leetcode.com/problems/n-th-tribonacci-number/?envType=study-plan-v2&envId=dynamic-programming
 Difficulty: Easy
 Question: The Tribonacci sequence Tn is defined as follows:
